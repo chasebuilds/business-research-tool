@@ -11,7 +11,7 @@ from business_research.http import DEFAULT_INTERVAL, MIN_INTERVAL_FLOOR, PoliteC
 from business_research.inputs import read_companies
 from business_research.matching import DEFAULT_ACCEPT, DEFAULT_REVIEW
 from business_research.pipeline import research
-from business_research.sources import DEFAULT_SOURCES, build_adapters
+from business_research.sources import DEFAULT_SOURCES, CsvSource, build_adapters
 from business_research.workbook import summary_rows, write_workbook
 
 log = logging.getLogger("business_research")
@@ -31,6 +31,11 @@ def main(argv: list[str] | None = None) -> int:
         "-o", "--output", default="research.xlsx", help="output workbook (default research.xlsx)"
     )
     run.add_argument("--sources", default=",".join(DEFAULT_SOURCES), help="comma list, in priority order")
+    run.add_argument(
+        "--reference",
+        metavar="CSV",
+        help="your own reference list (id, name, optional country and fact columns) used as one more source",
+    )
     run.add_argument("--cache-dir", default=".cache", help="on-disk response cache (default .cache)")
     run.add_argument("--refresh", action="store_true", help="ignore cached responses and fetch again")
     run.add_argument(
@@ -102,6 +107,8 @@ def _run(args: argparse.Namespace) -> int:
     adapters = build_adapters(
         client, [s.strip() for s in args.sources.split(",") if s.strip()], not args.strict_robots
     )
+    if args.reference:
+        adapters.append(CsvSource(args.reference))
     for exemption in client.exemptions:
         log.info(
             "robots exemption in force: %s%s (%s)", exemption.host, exemption.path_prefix, exemption.terms_url

@@ -4,6 +4,7 @@ import logging
 
 from business_research.http import PoliteClient
 from business_research.sources.base import SourceAdapter
+from business_research.sources.csvsource import CsvSource
 from business_research.sources.edgar import EdgarAdapter, edgar_contact
 from business_research.sources.gleif import GleifAdapter
 from business_research.sources.ror import RorAdapter
@@ -13,7 +14,15 @@ log = logging.getLogger("business_research")
 
 DEFAULT_SOURCES = ("gleif", "ror", "wikidata", "edgar")
 
-__all__ = ["SourceAdapter", "GleifAdapter", "RorAdapter", "WikidataAdapter", "EdgarAdapter", "build_adapters"]
+__all__ = [
+    "SourceAdapter",
+    "CsvSource",
+    "GleifAdapter",
+    "RorAdapter",
+    "WikidataAdapter",
+    "EdgarAdapter",
+    "build_adapters",
+]
 
 
 def build_adapters(

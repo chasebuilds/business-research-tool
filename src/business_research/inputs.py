@@ -22,12 +22,13 @@ ID_HEADERS = {
     "wikidata": ("wikidata_id", "wikidata", "qid"),
     "gleif": ("lei",),
     "ror": ("ror_id", "ror"),
+    "reference": ("reference_id",),
 }
 
 
 def read_companies(path: str | Path) -> list[CompanyInput]:
     """Read a CSV or XLSX list of companies. Needs a name column, takes an optional country
-    column and optional id columns (wikidata_id, lei, ror_id)."""
+    column and optional id columns (wikidata_id, lei, ror_id, reference_id)."""
     path = Path(path)
     rows = _read_xlsx(path) if path.suffix.lower() in (".xlsx", ".xlsm") else _read_csv(path)
     if not rows:
