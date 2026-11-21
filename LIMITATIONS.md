@@ -37,7 +37,7 @@ What this tool does not do, and where its answers need a second look.
 - **Speed is capped on purpose.** At least 0.5 seconds between requests to one host, 1 second by default, slower for GLEIF and Wikidata. The floor cannot be lowered. A list of 1,000 companies takes roughly an hour on a cold cache.
 - **A blocked source is dropped, not worked around.** Three 403 or 429 answers in a row, or a `Retry-After` longer than 120 seconds, end all requests to that host for the run. Rows after that point lack that source and say so in `notes`. Rerun later to fill them in.
 - **Terms are checked by a person, not by code.** The licence and terms link per source are recorded in the adapters and the `Summary` sheet as read on 2026-11-20. If a source changes its terms, that record has to be updated by hand. The SEC EDGAR licence line is marked not verified.
-- **Cached answers are up to 7 days old** unless `--refresh` is passed. The `retrieved_utc` column always shows when the data was really fetched.
+- **Cached answers are up to 7 days old** unless `--refresh` or `--cache-days` says otherwise. `--offline` uses cached answers of any age. The `retrieved_utc` column always shows when the data was really fetched.
 - **APIs change.** The adapters were written against the responses seen on 2026-11-21 (UTC). Wikidata states its data access paths are not guaranteed stable.
 - **Live matches are not graded by the tool.** The `audit-sample` and `audit-score` commands support a hand check and report it with a Wilson interval. No hand check has been done on the sample run in this repo.
 - **Source dates are record dates.** `source_last_updated` is when the source last changed the record, not when each field was last confirmed. SEC EDGAR records carry none.

@@ -15,6 +15,7 @@ log = logging.getLogger("business_research")
 DEFAULT_SOURCES = ("gleif", "ror", "wikidata", "edgar")
 
 __all__ = [
+    "adapter_hosts",
     "SourceAdapter",
     "CsvSource",
     "GleifAdapter",
@@ -44,3 +45,11 @@ def build_adapters(
             continue
         adapters.append(registry[name](client))
     return adapters
+
+
+def adapter_hosts(adapter: SourceAdapter) -> tuple[str, ...]:
+    """Hosts one adapter sends requests to. Empty for a source that reads a local file."""
+    if hosts := getattr(adapter, "hosts", None):
+        return tuple(hosts)
+    host = getattr(adapter, "host", None)
+    return (host,) if host else ()

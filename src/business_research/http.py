@@ -39,6 +39,10 @@ class RobotsDisallowed(FetchError):
     pass
 
 
+class OfflineMiss(FetchError):
+    """Offline mode and the answer is not in the cache. Nothing was sent."""
+
+
 class HostBlocked(FetchError):
     """The host signalled a block, or asked for a longer wait than this run allows.
     Nothing more is sent to it for the rest of the run."""
@@ -92,10 +96,14 @@ class PoliteClient:
         max_retries: int = 4,
         cache_ttl: float = DEFAULT_TTL,
         refresh: bool = False,
+        offline: bool = False,
         session=None,
         sleep=time.sleep,
         clock=time.monotonic,
+        wall_clock=time.time,
     ):
+        if offline and refresh:
+            raise ValueError("offline and refresh cannot be combined: refresh needs the network")
         self.cache_dir = Path(cache_dir)
         self.cache_dir.mkdir(parents=True, exist_ok=True)
         self.user_agent = user_agent or default_user_agent()
@@ -107,9 +115,12 @@ class PoliteClient:
         self.max_retries = max_retries
         self.cache_ttl = cache_ttl
         self.refresh = refresh
+        # Offline answers only from the cache, at any age, and sends nothing, not even robots.txt.
+        self.offline = offline
         self._session = session
         self._sleep = sleep
         self._clock = clock
+        self._wall_clock = wall_clock
         self._last: dict[str, float] = {}
         self._robots: dict[str, tuple[robots.RobotsRules, float]] = {}
         self._streak: Counter[str] = Counter()
@@ -128,21 +139,32 @@ class PoliteClient:
     def interval_for(self, host: str) -> float:
         return self.host_intervals.get(host, self.min_interval)
 
+    def set_interval(self, host: str, seconds: float) -> None:
+        """Pace one host. The floor still applies."""
+        self.host_intervals[host] = max(MIN_INTERVAL_FLOOR, float(seconds))
+
     def get_json(self, url: str, params: dict[str, str] | None = None) -> Response:
         """Fetch JSON. A 404 comes back as a Response with data None, other failures raise."""
         full = f"{url}?{urlencode(params)}" if params else url
-        self._check_robots(full)
-        cached = self._cache_read(full, self.cache_ttl)
+        if not self.offline:
+            self._check_robots(full)
+        cached = self._cache_read(full, None if self.offline else self.cache_ttl)
         if cached is not None:
             self.stats["cache_hits"] += 1
             log.info("cache  %s (fetched %s)", full, cached["retrieved"])
-            return Response(cached["status"], _loads(cached["body"]), full, cached["retrieved"], True)
+            data = None if cached["status"] == 404 else _loads(cached["body"])
+            return Response(cached["status"], data, full, cached["retrieved"], True)
+        if self.offline:
+            self.stats["offline_misses"] += 1
+            log.warning("offline, not cached  %s", full)
+            raise OfflineMiss(f"offline and not in cache: {full}")
         status, body, retrieved = self._fetch(full)
+        if status not in (200, 404):
+            raise FetchError(f"HTTP {status} from {full}")
+        # A 404 is cached too, so a rerun does not ask again for a record that does not exist.
+        self._cache_write(full, status, body, retrieved)
         if status == 404:
             return Response(status, None, full, retrieved, False)
-        if status != 200:
-            raise FetchError(f"HTTP {status} from {full}")
-        self._cache_write(full, status, body, retrieved)
         return Response(status, _loads(body), full, retrieved, False)
 
     def _check_robots(self, full_url: str) -> None:
@@ -245,12 +267,23 @@ class PoliteClient:
     def _cache_path(self, full_url: str) -> Path:
         return self.cache_dir / (hashlib.sha256(full_url.encode()).hexdigest()[:32] + ".json")
 
-    def _cache_read(self, full_url: str, ttl: float) -> dict | None:
+    def _cache_read(self, full_url: str, ttl: float | None) -> dict | None:
+        """The cached entry, or None when absent, expired (past `ttl` seconds) or unreadable."""
         path = self._cache_path(full_url)
         if self.refresh or not path.exists():
             return None
-        entry = json.loads(path.read_text(encoding="utf-8"))
-        if time.time() - entry["saved"] > ttl:
+        try:
+            entry = json.loads(path.read_text(encoding="utf-8"))
+            saved = float(entry["saved"])
+            if not all(key in entry for key in ("status", "retrieved", "body")):
+                raise KeyError("missing fields")
+        except (OSError, ValueError, KeyError, TypeError) as exc:
+            # A half-written or hand-edited file is a miss, not a crash. It is overwritten on refetch.
+            log.warning("cache entry unreadable, ignored: %s (%s)", path.name, exc)
+            return None
+        if entry.get("url", full_url) != full_url:
+            return None
+        if ttl is not None and self._wall_clock() - saved > ttl:
             return None
         return entry
 
@@ -259,7 +292,7 @@ class PoliteClient:
             "url": full_url,
             "status": status,
             "retrieved": retrieved,
-            "saved": time.time(),
+            "saved": self._wall_clock(),
             "body": body,
         }
         self._cache_path(full_url).write_text(json.dumps(entry), encoding="utf-8")

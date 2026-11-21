@@ -41,7 +41,8 @@ A live adapter takes a `PoliteClient` and calls only `client.get_json(url, param
 - per-host spacing, with a 0.5 second floor no setting can lower
 - retry with backoff on 429 and 5xx, `Retry-After` honored
 - stop on block (three 403 or 429 in a row)
-- on-disk cache with a TTL
+- on-disk cache with a TTL, and `--offline` mode that answers from it alone
+- `--source-interval NAME=SECONDS`, which finds the adapter's hosts through its `host` or `hosts` attribute
 
 An adapter that needs a slower pace for its host sets it in `__init__`, the way `GleifAdapter` does: `client.host_intervals.setdefault(self.host, max(self.min_interval, client.min_interval))`.
 

@@ -7,11 +7,11 @@ import sys
 from pathlib import Path
 
 from business_research import __version__, audit, mock
-from business_research.http import DEFAULT_INTERVAL, MIN_INTERVAL_FLOOR, PoliteClient
+from business_research.http import DEFAULT_INTERVAL, DEFAULT_TTL, MIN_INTERVAL_FLOOR, PoliteClient
 from business_research.inputs import read_companies
 from business_research.matching import DEFAULT_ACCEPT, DEFAULT_REVIEW
 from business_research.pipeline import research
-from business_research.sources import DEFAULT_SOURCES, CsvSource, build_adapters
+from business_research.sources import DEFAULT_SOURCES, CsvSource, adapter_hosts, build_adapters
 from business_research.workbook import summary_rows, write_workbook
 
 log = logging.getLogger("business_research")
@@ -39,10 +39,28 @@ def main(argv: list[str] | None = None) -> int:
     run.add_argument("--cache-dir", default=".cache", help="on-disk response cache (default .cache)")
     run.add_argument("--refresh", action="store_true", help="ignore cached responses and fetch again")
     run.add_argument(
+        "--offline",
+        action="store_true",
+        help="send no request at all: answer only from the cache, at any age",
+    )
+    run.add_argument(
+        "--cache-days",
+        type=float,
+        default=DEFAULT_TTL / 86400,
+        help=f"reuse cached answers up to this many days old (default {DEFAULT_TTL / 86400:g})",
+    )
+    run.add_argument(
         "--min-interval",
         type=float,
         default=DEFAULT_INTERVAL,
         help=f"seconds between requests to one host (default {DEFAULT_INTERVAL}, floor {MIN_INTERVAL_FLOOR})",
+    )
+    run.add_argument(
+        "--source-interval",
+        action="append",
+        default=[],
+        metavar="SOURCE=SECONDS",
+        help=f"slow one source down, e.g. gleif=2 (repeatable, floor {MIN_INTERVAL_FLOOR})",
     )
     _thresholds(run)
     run.add_argument("--log", help="run log path (default: output name with .log)")
@@ -83,7 +101,25 @@ def main(argv: list[str] | None = None) -> int:
         return 0 if result["checked"] else 1
     if args.review > args.accept:
         parser.error("--review must not be higher than --accept")
+    if args.command == "run":
+        if args.offline and args.refresh:
+            parser.error("--offline and --refresh cannot be combined")
+        try:
+            args.source_interval = _source_intervals(args.source_interval)
+        except ValueError as exc:
+            parser.error(str(exc))
     return _run(args) if args.command == "run" else _demo(args)
+
+
+def _source_intervals(items: list[str]) -> dict[str, float]:
+    intervals = {}
+    for item in items:
+        source, _, seconds = item.partition("=")
+        try:
+            intervals[source.strip()] = float(seconds)
+        except ValueError:
+            raise ValueError(f"--source-interval wants SOURCE=SECONDS, got {item!r}") from None
+    return intervals
 
 
 def _thresholds(parser: argparse.ArgumentParser) -> None:
@@ -103,12 +139,26 @@ def _run(args: argparse.Namespace) -> int:
     if not companies:
         print(f"No companies found in {args.input}", file=sys.stderr)
         return 1
-    client = PoliteClient(cache_dir=args.cache_dir, min_interval=args.min_interval, refresh=args.refresh)
+    client = PoliteClient(
+        cache_dir=args.cache_dir,
+        min_interval=args.min_interval,
+        refresh=args.refresh,
+        offline=args.offline,
+        cache_ttl=args.cache_days * 86400,
+    )
     adapters = build_adapters(
         client, [s.strip() for s in args.sources.split(",") if s.strip()], not args.strict_robots
     )
     if args.reference:
         adapters.append(CsvSource(args.reference))
+    by_name = {a.name: a for a in adapters}
+    for source, seconds in args.source_interval.items():
+        if source not in by_name:
+            log.warning("--source-interval %s ignored: that source is not in this run", source)
+        for host in adapter_hosts(by_name[source]) if source in by_name else ():
+            client.set_interval(host, seconds)
+    if args.offline:
+        log.info("offline: no requests will be sent, answers come from %s only", args.cache_dir)
     for exemption in client.exemptions:
         log.info(
             "robots exemption in force: %s%s (%s)", exemption.host, exemption.path_prefix, exemption.terms_url
