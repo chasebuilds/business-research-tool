@@ -2,6 +2,8 @@
 
 Turn a list of company names into a research spreadsheet where every fact has a source link, a retrieval date, and a status that says whether an independent second source agrees.
 
+![A list of invented company names above, and the research sheet below with each field colored by how many sources agree](docs/preview.png)
+
 Built by Chase Builds. Python library and command line tool.
 
 ## Measured result
