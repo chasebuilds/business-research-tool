@@ -1,5 +1,7 @@
 # business-research-tool
 
+[![ci](https://github.com/chasebuilds/business-research-tool/actions/workflows/ci.yml/badge.svg)](https://github.com/chasebuilds/business-research-tool/actions/workflows/ci.yml) ![Python 3.11+](https://img.shields.io/badge/python-3.11%2B-blue) [![MIT license](https://img.shields.io/badge/license-MIT-green)](LICENSE)
+
 Turn a list of company names into a research spreadsheet where every fact has a source link, a retrieval date, and a status that says whether an independent second source agrees.
 
 ![A list of invented company names above, and the research sheet below with each field colored by how many sources agree](docs/preview.png)
