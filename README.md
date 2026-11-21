@@ -65,8 +65,14 @@ The second command is offline: it runs the whole pipeline on invented companies 
 To check the repo yourself:
 
 ```powershell
-.venv\Scripts\python -m pytest -q
+.venv\Scripts\python -m pytest -q --cov
 ```
+
+```powershell
+.venv\Scripts\python -m mypy
+```
+
+CI runs ruff, mypy over `src/`, and the test suite with a coverage report on Python 3.11 and 3.13. The build fails below 90% coverage (lines and branches).
 
 ```powershell
 .venv\Scripts\python benchmark/run_benchmark.py

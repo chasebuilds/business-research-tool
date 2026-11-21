@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import logging
+from collections.abc import Sequence
 
 from business_research.http import FetchError, utc_now
 from business_research.matching import DEFAULT_ACCEPT, DEFAULT_REVIEW, decide
@@ -24,7 +25,7 @@ MAX_LINKED_FETCHES = 3
 
 def research(
     inputs: list[CompanyInput],
-    adapters: list[SourceAdapter],
+    adapters: Sequence[SourceAdapter],
     accept: float = DEFAULT_ACCEPT,
     review: float = DEFAULT_REVIEW,
     stats: dict[str, int] | None = None,
@@ -67,7 +68,7 @@ def research(
 
 
 def research_one(
-    company: CompanyInput, adapters: list[SourceAdapter], accept: float, review: float
+    company: CompanyInput, adapters: Sequence[SourceAdapter], accept: float, review: float
 ) -> CompanyResult:
     result = CompanyResult(company)
     found: dict[str, list[Candidate]] = {}
@@ -145,14 +146,14 @@ def _demote_inconsistent(result: CompanyResult) -> None:
     matched records do not even share a name, the weaker one is probably a look-alike company,
     so it goes to review instead of into the dataset.
     """
-    accepted = [(s, d) for s, d in result.decisions.items() if d.status == ACCEPTED and d.chosen]
+    accepted = [(s, d, d.chosen) for s, d in result.decisions.items() if d.status == ACCEPTED and d.chosen]
     if len(accepted) < 2:
         return
-    anchor_source, anchor = max(accepted, key=lambda pair: pair[1].chosen.score)
-    anchor_name = Fact(anchor.chosen.candidate.name, tuple(anchor.chosen.candidate.aliases))
-    for source, decision in accepted:
-        candidate = decision.chosen.candidate
-        if decision.chosen.score >= anchor.chosen.score:
+    anchor_source, _, anchor = max(accepted, key=lambda triple: triple[2].score)
+    anchor_name = Fact(anchor.candidate.name, tuple(anchor.candidate.aliases))
+    for source, decision, chosen in accepted:
+        candidate = chosen.candidate
+        if chosen.score >= anchor.score:
             continue
         if not agree("legal_name", anchor_name, Fact(candidate.name, tuple(candidate.aliases))):
             decision.status, decision.chosen = REVIEW, None

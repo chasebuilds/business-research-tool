@@ -59,7 +59,7 @@ def _companies(run: RunResult):
             for source, d in company.decisions.items()
             if d.status == ACCEPTED and d.chosen
         )
-        row = [
+        row: list[object] = [
             company.input.name,
             company.input.country or company.input.country_raw,
             company.status,
@@ -94,7 +94,9 @@ def _sources(run: RunResult):
         accepted = company.accepted
         for field in FIELDS:
             result = company.fields.get(field)
-            for source, fact in result.entries if result else []:
+            if not result:
+                continue
+            for source, fact in result.entries:
                 record = accepted[source]
                 rows.append(
                     [

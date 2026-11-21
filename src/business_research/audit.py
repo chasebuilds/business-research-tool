@@ -38,7 +38,7 @@ def draw_sample(workbook: str | Path, output: str | Path, size: int = 50, seed: 
     )
     chosen = sorted(random.Random(seed).sample(matches, min(size, len(matches))))
     book = Workbook()
-    sheet = book.active
+    sheet = book.worksheets[0]
     sheet.title = "Audit"
     sheet.append(HEADER)
     for match in chosen:

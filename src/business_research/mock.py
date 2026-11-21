@@ -204,16 +204,15 @@ def generate(seed: int = 7, n_companies: int = 300, n_inputs: int = 250, n_absen
         if target:
             record.links["registry"] = [target.record_id]
 
-    inputs, expected = [], {}
+    inputs: list[CompanyInput] = []
+    expected: dict[str, int | None] = {}
     for company in rng.sample(truth, min(n_inputs, len(truth))):
         name = _input_name(rng, company)
         if name in expected:
             continue
         expected[name] = company.truth_id
-        country = company.country if rng.random() < 0.6 else None
-        inputs.append(
-            CompanyInput(name=name, country=country, country_raw=country or "", row=len(inputs) + 2)
-        )
+        given = company.country if rng.random() < 0.6 else None
+        inputs.append(CompanyInput(name=name, country=given, country_raw=given or "", row=len(inputs) + 2))
     for _ in range(n_absent):
         sector = rng.choice(list(SECTORS))
         country = rng.choice(COUNTRIES)
@@ -278,6 +277,7 @@ def _render(
         if field_name == "legal_name" or rng.random() < P_FIELD_MISSING:
             continue
         different = rng.random() < P_FIELD_DIFFERENT
+        value: str | int
         tags[field_name] = "diff" if different else "same"
         if field_name == "country":
             value = (

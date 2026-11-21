@@ -10,3 +10,5 @@ dist/
 /research.xlsx
 /research.log
 ~$*.xlsx
+.coverage
+.mypy_cache/

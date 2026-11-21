@@ -10,6 +10,7 @@ from dataclasses import dataclass
 from datetime import UTC, datetime
 from email.utils import parsedate_to_datetime
 from pathlib import Path
+from typing import Any
 from urllib.parse import urlencode, urlsplit
 
 from business_research import robots
@@ -67,7 +68,7 @@ class ApiExemption:
 @dataclass
 class Response:
     status: int
-    data: object
+    data: Any  # parsed JSON: shape depends on the source
     url: str
     retrieved: str
     from_cache: bool
@@ -298,7 +299,7 @@ class PoliteClient:
         self._cache_path(full_url).write_text(json.dumps(entry), encoding="utf-8")
 
 
-def _loads(body: str) -> object:
+def _loads(body: str) -> Any:
     try:
         return json.loads(body)
     except json.JSONDecodeError as exc:

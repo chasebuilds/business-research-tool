@@ -57,12 +57,10 @@ class GleifAdapter:
         legal = (entity.get("legalAddress") or {}).get("country")
         headquarters = (entity.get("headquartersAddress") or {}).get("country")
         facts = {"legal_name": Fact(legal_name, tuple(other)), "lei": Fact(lei)}
-        if headquarters or legal:
+        if country := headquarters or legal:
             # Headquarters country is what a client usually means. The legal address is kept as an
             # equivalent so a company registered in one place and run from another still agrees.
-            facts["country"] = Fact(
-                headquarters or legal, tuple(c for c in (legal,) if c and c != headquarters)
-            )
+            facts["country"] = Fact(country, tuple(c for c in (legal,) if c and c != headquarters))
         return Candidate(
             source=self.name,
             record_id=lei,

@@ -4,6 +4,7 @@ import argparse
 import csv
 import logging
 import sys
+import time
 from pathlib import Path
 
 from business_research import __version__, audit, mock
@@ -202,10 +203,9 @@ def _logging(log_path: Path) -> None:
     log.setLevel(logging.INFO)
     log.handlers.clear()
     file_handler = logging.FileHandler(log_path, mode="w", encoding="utf-8")
-    file_handler.setFormatter(
-        logging.Formatter("%(asctime)sZ %(levelname)-7s %(message)s", "%Y-%m-%dT%H:%M:%S")
-    )
-    file_handler.formatter.converter = __import__("time").gmtime
+    formatter = logging.Formatter("%(asctime)sZ %(levelname)-7s %(message)s", "%Y-%m-%dT%H:%M:%S")
+    formatter.converter = time.gmtime
+    file_handler.setFormatter(formatter)
     console = logging.StreamHandler(sys.stderr)
     console.setLevel(logging.WARNING)
     log.addHandler(file_handler)
