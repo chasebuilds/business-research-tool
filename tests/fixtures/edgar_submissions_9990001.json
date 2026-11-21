@@ -1,0 +1,13 @@
+{
+ "cik": "9990001",
+ "entityType": "operating",
+ "sic": "3577",
+ "sicDescription": "Computer Peripheral Equipment, NEC",
+ "name": "Northwind Example Corp",
+ "tickers": ["NWEX"],
+ "exchanges": ["Nasdaq"],
+ "website": "https://www.northwind-example.test",
+ "stateOfIncorporation": "DE",
+ "addresses": {"mailing": {"stateOrCountry": "WA"}, "business": {"stateOrCountry": "WA"}},
+ "formerNames": [{"name": "Northwind Sample Corp", "from": "2001-01-01T00:00:00.000Z", "to": "2009-01-01T00:00:00.000Z"}]
+}

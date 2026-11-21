@@ -1,0 +1,48 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "business-research-tool"
+version = "0.1.0"
+description = "Company research datasets where every fact has a source, a retrieval date and a verification status."
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+authors = [{ name = "Chase Builds" }]
+dependencies = [
+    "requests>=2.31",
+    "openpyxl>=3.1",
+    "rapidfuzz>=3.6",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8", "ruff>=0.6"]
+
+[project.scripts]
+business-research = "business_research.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src", "benchmark"]
+
+[tool.ruff]
+line-length = 110
+target-version = "py311"
+src = ["src", "tests", "benchmark"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP", "SIM"]
+# Word lists read better as one split string than as a wall of quoted items.
+ignore = ["SIM905"]
+
+[tool.ruff.lint.per-file-ignores]
+# Markdown table rows are built as single f-strings.
+"benchmark/run_benchmark.py" = ["E501"]
+
+[tool.ruff.lint.isort]
+known-first-party = ["business_research"]
+known-local-folder = ["conftest", "run_benchmark"]

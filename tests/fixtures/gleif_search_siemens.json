@@ -1,0 +1,73 @@
+{
+ "meta": {
+  "pagination": {
+   "currentPage": 1,
+   "perPage": 5,
+   "from": 1,
+   "to": 2,
+   "total": 2,
+   "lastPage": 1
+  }
+ },
+ "data": [
+  {
+   "type": "lei-records",
+   "id": "W38RGI023J3WT1HWRP32",
+   "attributes": {
+    "lei": "W38RGI023J3WT1HWRP32",
+    "entity": {
+     "legalName": {
+      "name": "Siemens Aktiengesellschaft",
+      "language": "de"
+     },
+     "otherNames": [],
+     "jurisdiction": "DE",
+     "legalForm": {
+      "id": "6QQB",
+      "other": null
+     },
+     "status": "ACTIVE",
+     "legalAddress": {
+      "country": "DE"
+     },
+     "headquartersAddress": {
+      "country": "DE"
+     }
+    },
+    "registration": {
+     "status": "ISSUED",
+     "lastUpdateDate": "2026-09-01T15:35:21Z"
+    }
+   }
+  },
+  {
+   "type": "lei-records",
+   "id": "52990021T5LVTQOGSU18",
+   "attributes": {
+    "lei": "52990021T5LVTQOGSU18",
+    "entity": {
+     "legalName": {
+      "name": "Siemens Aktiengesellschaft Österreich",
+      "language": "de"
+     },
+     "otherNames": [],
+     "jurisdiction": "AT",
+     "legalForm": {
+      "id": "EQOV",
+      "other": null
+     },
+     "status": "ACTIVE",
+     "legalAddress": {
+      "country": "AT"
+     },
+     "headquartersAddress": {
+      "country": "AT"
+     }
+    },
+    "registration": {
+     "status": "ISSUED"
+    }
+   }
+  }
+ ]
+}

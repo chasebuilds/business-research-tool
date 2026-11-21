@@ -1,0 +1,284 @@
+{
+ "number_of_results": 4,
+ "items": [
+  {
+   "id": "https://ror.org/01eccwj82",
+   "names": [
+    {
+     "lang": "en",
+     "types": [
+      "label",
+      "ror_display"
+     ],
+     "value": "Siemens Energy"
+    },
+    {
+     "lang": "en",
+     "types": [
+      "alias"
+     ],
+     "value": "Siemens Energy AG"
+    },
+    {
+     "lang": "en",
+     "types": [
+      "alias"
+     ],
+     "value": "Siemens Energy Global GmbH & Co. KG"
+    }
+   ],
+   "types": [
+    "company"
+   ],
+   "status": "active",
+   "established": 2020,
+   "links": [
+    {
+     "type": "website",
+     "value": "https://www.siemens-energy.com"
+    },
+    {
+     "type": "wikipedia",
+     "value": "https://en.wikipedia.org/wiki/Siemens_Energy"
+    }
+   ],
+   "external_ids": [
+    {
+     "all": [
+      "0000 0005 0284 0190"
+     ],
+     "preferred": "0000 0005 0284 0190",
+     "type": "isni"
+    },
+    {
+     "all": [
+      "Q89189545"
+     ],
+     "preferred": "Q89189545",
+     "type": "wikidata"
+    }
+   ],
+   "locations": [
+    {
+     "geonames_details": {
+      "country_code": "DE"
+     }
+    }
+   ]
+  },
+  {
+   "id": "https://ror.org/059mq0909",
+   "names": [
+    {
+     "lang": null,
+     "types": [
+      "ror_display",
+      "label"
+     ],
+     "value": "Siemens (Germany)"
+    }
+   ],
+   "types": [
+    "company",
+    "funder"
+   ],
+   "status": "active",
+   "established": 1847,
+   "links": [
+    {
+     "type": "website",
+     "value": "http://www.siemens.com/entry/cc/en/"
+    },
+    {
+     "type": "wikipedia",
+     "value": "https://en.wikipedia.org/wiki/Siemens"
+    }
+   ],
+   "external_ids": [
+    {
+     "all": [
+      "501100004830"
+     ],
+     "preferred": null,
+     "type": "fundref"
+    },
+    {
+     "all": [
+      "grid.5406.7"
+     ],
+     "preferred": "grid.5406.7",
+     "type": "grid"
+    },
+    {
+     "all": [
+      "0000 0001 2178 835X"
+     ],
+     "preferred": null,
+     "type": "isni"
+    },
+    {
+     "all": [
+      "Q81230"
+     ],
+     "preferred": null,
+     "type": "wikidata"
+    }
+   ],
+   "locations": [
+    {
+     "geonames_details": {
+      "country_code": "DE"
+     }
+    }
+   ],
+   "admin": {
+    "last_modified": {
+     "date": "2026-09-22",
+     "schema_version": "2.1"
+    }
+   }
+  },
+  {
+   "id": "https://ror.org/0449c4c15",
+   "names": [
+    {
+     "lang": "en",
+     "types": [
+      "alias"
+     ],
+     "value": "Siemens Healthcare"
+    },
+    {
+     "lang": "en",
+     "types": [
+      "label"
+     ],
+     "value": "Siemens Healthineers"
+    },
+    {
+     "lang": null,
+     "types": [
+      "label",
+      "ror_display"
+     ],
+     "value": "Siemens Healthineers (Germany)"
+    },
+    {
+     "lang": "en",
+     "types": [
+      "label"
+     ],
+     "value": "Siemens Healthineers AG"
+    }
+   ],
+   "types": [
+    "company",
+    "funder"
+   ],
+   "status": "active",
+   "established": 1847,
+   "links": [
+    {
+     "type": "website",
+     "value": "https://www.siemens-healthineers.com"
+    },
+    {
+     "type": "wikipedia",
+     "value": "https://en.wikipedia.org/wiki/Siemens_Healthineers"
+    }
+   ],
+   "external_ids": [
+    {
+     "all": [
+      "501100011699"
+     ],
+     "preferred": "501100011699",
+     "type": "fundref"
+    },
+    {
+     "all": [
+      "grid.481749.7"
+     ],
+     "preferred": "grid.481749.7",
+     "type": "grid"
+    },
+    {
+     "all": [
+      "0000 0004 0552 4145"
+     ],
+     "preferred": null,
+     "type": "isni"
+    },
+    {
+     "all": [
+      "Q472451"
+     ],
+     "preferred": null,
+     "type": "wikidata"
+    }
+   ],
+   "locations": [
+    {
+     "geonames_details": {
+      "country_code": "DE"
+     }
+    }
+   ]
+  },
+  {
+   "id": "https://ror.org/013dfdf36",
+   "names": [
+    {
+     "lang": "de",
+     "types": [
+      "ror_display",
+      "label"
+     ],
+     "value": "Carl Friedrich von Siemens Stiftung"
+    }
+   ],
+   "types": [
+    "funder",
+    "other"
+   ],
+   "status": "active",
+   "established": 1960,
+   "links": [
+    {
+     "type": "website",
+     "value": "http://www.carl-friedrich-von-siemens-stiftung.de/"
+    }
+   ],
+   "external_ids": [
+    {
+     "all": [
+      "501100007666"
+     ],
+     "preferred": null,
+     "type": "fundref"
+    },
+    {
+     "all": [
+      "grid.478623.c"
+     ],
+     "preferred": "grid.478623.c",
+     "type": "grid"
+    },
+    {
+     "all": [
+      "0000 0001 0941 1349"
+     ],
+     "preferred": null,
+     "type": "isni"
+    }
+   ],
+   "locations": [
+    {
+     "geonames_details": {
+      "country_code": "DE"
+     }
+    }
+   ]
+  }
+ ]
+}

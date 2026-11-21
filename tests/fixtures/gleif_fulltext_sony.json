@@ -1,0 +1,40 @@
+{
+ "data": [
+  {
+   "type": "lei-records",
+   "id": "529900R5WX9N2OI2N910",
+   "attributes": {
+    "lei": "529900R5WX9N2OI2N910",
+    "entity": {
+     "legalName": {
+      "name": "ソニーグループ株式会社",
+      "language": "ja"
+     },
+     "otherNames": [
+      {
+       "name": "Sony Group Corporation",
+       "language": "en",
+       "type": "ALTERNATIVE_LANGUAGE_LEGAL_NAME"
+      }
+     ],
+     "transliteratedOtherNames": [],
+     "jurisdiction": "JP",
+     "legalForm": {
+      "id": "T417",
+      "other": null
+     },
+     "status": "ACTIVE",
+     "legalAddress": {
+      "country": "JP"
+     },
+     "headquartersAddress": {
+      "country": "JP"
+     }
+    },
+    "registration": {
+     "status": "ISSUED"
+    }
+   }
+  }
+ ]
+}

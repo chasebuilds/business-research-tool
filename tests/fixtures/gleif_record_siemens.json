@@ -1,0 +1,32 @@
+{
+ "data": {
+  "type": "lei-records",
+  "id": "W38RGI023J3WT1HWRP32",
+  "attributes": {
+   "lei": "W38RGI023J3WT1HWRP32",
+   "entity": {
+    "legalName": {
+     "name": "Siemens Aktiengesellschaft",
+     "language": "de"
+    },
+    "otherNames": [],
+    "jurisdiction": "DE",
+    "legalForm": {
+     "id": "6QQB",
+     "other": null
+    },
+    "status": "ACTIVE",
+    "legalAddress": {
+     "country": "DE"
+    },
+    "headquartersAddress": {
+     "country": "DE"
+    }
+   },
+   "registration": {
+    "status": "ISSUED",
+    "lastUpdateDate": "2026-09-01T15:35:21Z"
+   }
+  }
+ }
+}

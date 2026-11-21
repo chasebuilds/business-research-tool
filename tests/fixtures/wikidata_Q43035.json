@@ -1,0 +1,15 @@
+{
+ "entities": {
+  "Q43035": {
+   "id": "Q43035",
+   "labels": {
+    "en": {
+     "language": "en",
+     "value": "electrical engineering"
+    }
+   },
+   "aliases": {},
+   "claims": {}
+  }
+ }
+}

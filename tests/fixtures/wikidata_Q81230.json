@@ -1,0 +1,345 @@
+{
+ "entities": {
+  "Q81230": {
+   "id": "Q81230",
+   "labels": {
+    "en": {
+     "language": "en",
+     "value": "Siemens"
+    }
+   },
+   "aliases": {
+    "en": [
+     {
+      "language": "en",
+      "value": "Siemens Aktiengesellschaft"
+     },
+     {
+      "language": "en",
+      "value": "Siemens AG"
+     },
+     {
+      "language": "en",
+      "value": "Siemens & Halske"
+     },
+     {
+      "language": "en",
+      "value": "SIEMENS AG"
+     },
+     {
+      "language": "en",
+      "value": "Siemens Aktiengesellschaft (Munich)"
+     }
+    ]
+   },
+   "claims": {
+    "P17": [
+     {
+      "rank": "normal",
+      "mainsnak": {
+       "snaktype": "value",
+       "datavalue": {
+        "value": {
+         "entity-type": "item",
+         "numeric-id": 183,
+         "id": "Q183"
+        },
+        "type": "wikibase-entityid"
+       }
+      },
+      "qualifiers": {}
+     }
+    ],
+    "P856": [
+     {
+      "rank": "normal",
+      "mainsnak": {
+       "snaktype": "value",
+       "datavalue": {
+        "value": "https://www.siemens.com/",
+        "type": "string"
+       }
+      },
+      "qualifiers": {}
+     }
+    ],
+    "P452": [
+     {
+      "rank": "normal",
+      "mainsnak": {
+       "snaktype": "value",
+       "datavalue": {
+        "value": {
+         "entity-type": "item",
+         "numeric-id": 43035,
+         "id": "Q43035"
+        },
+        "type": "wikibase-entityid"
+       }
+      },
+      "qualifiers": {}
+     },
+     {
+      "rank": "normal",
+      "mainsnak": {
+       "snaktype": "value",
+       "datavalue": {
+        "value": {
+         "entity-type": "item",
+         "numeric-id": 609131,
+         "id": "Q609131"
+        },
+        "type": "wikibase-entityid"
+       }
+      },
+      "qualifiers": {}
+     },
+     {
+      "rank": "normal",
+      "mainsnak": {
+       "snaktype": "value",
+       "datavalue": {
+        "value": {
+         "entity-type": "item",
+         "numeric-id": 327092,
+         "id": "Q327092"
+        },
+        "type": "wikibase-entityid"
+       }
+      },
+      "qualifiers": {}
+     },
+     {
+      "rank": "normal",
+      "mainsnak": {
+       "snaktype": "value",
+       "datavalue": {
+        "value": {
+         "entity-type": "item",
+         "numeric-id": 1786253,
+         "id": "Q1786253"
+        },
+        "type": "wikibase-entityid"
+       }
+      },
+      "qualifiers": {}
+     }
+    ],
+    "P571": [
+     {
+      "rank": "normal",
+      "mainsnak": {
+       "snaktype": "value",
+       "datavalue": {
+        "value": {
+         "time": "+1847-10-01T00:00:00Z",
+         "timezone": 0,
+         "before": 0,
+         "after": 0,
+         "precision": 11,
+         "calendarmodel": "http://www.wikidata.org/entity/Q1985727"
+        },
+        "type": "time"
+       }
+      },
+      "qualifiers": {}
+     }
+    ],
+    "P1128": [
+     {
+      "rank": "normal",
+      "mainsnak": {
+       "snaktype": "value",
+       "datavalue": {
+        "value": {
+         "amount": "+370000",
+         "unit": "1"
+        },
+        "type": "quantity"
+       }
+      },
+      "qualifiers": {
+       "P585": [
+        {
+         "datavalue": {
+          "value": {
+           "time": "+2012-09-30T00:00:00Z",
+           "timezone": 0,
+           "before": 0,
+           "after": 0,
+           "precision": 11,
+           "calendarmodel": "http://www.wikidata.org/entity/Q1985727"
+          },
+          "type": "time"
+         }
+        }
+       ]
+      }
+     },
+     {
+      "rank": "normal",
+      "mainsnak": {
+       "snaktype": "value",
+       "datavalue": {
+        "value": {
+         "amount": "+348000",
+         "unit": "1"
+        },
+        "type": "quantity"
+       }
+      },
+      "qualifiers": {
+       "P585": [
+        {
+         "datavalue": {
+          "value": {
+           "time": "+2015-09-30T00:00:00Z",
+           "timezone": 0,
+           "before": 0,
+           "after": 0,
+           "precision": 11,
+           "calendarmodel": "http://www.wikidata.org/entity/Q1985727"
+          },
+          "type": "time"
+         }
+        }
+       ]
+      }
+     },
+     {
+      "rank": "normal",
+      "mainsnak": {
+       "snaktype": "value",
+       "datavalue": {
+        "value": {
+         "amount": "+357000",
+         "unit": "1"
+        },
+        "type": "quantity"
+       }
+      },
+      "qualifiers": {
+       "P585": [
+        {
+         "datavalue": {
+          "value": {
+           "time": "+2014-09-30T00:00:00Z",
+           "timezone": 0,
+           "before": 0,
+           "after": 0,
+           "precision": 11,
+           "calendarmodel": "http://www.wikidata.org/entity/Q1985727"
+          },
+          "type": "time"
+         }
+        }
+       ]
+      }
+     },
+     {
+      "rank": "normal",
+      "mainsnak": {
+       "snaktype": "value",
+       "datavalue": {
+        "value": {
+         "amount": "+351000",
+         "unit": "1"
+        },
+        "type": "quantity"
+       }
+      },
+      "qualifiers": {
+       "P585": [
+        {
+         "datavalue": {
+          "value": {
+           "time": "+2016-09-30T00:00:00Z",
+           "timezone": 0,
+           "before": 0,
+           "after": 0,
+           "precision": 11,
+           "calendarmodel": "http://www.wikidata.org/entity/Q1985727"
+          },
+          "type": "time"
+         }
+        }
+       ]
+      }
+     }
+    ],
+    "P1278": [
+     {
+      "rank": "normal",
+      "mainsnak": {
+       "snaktype": "value",
+       "datavalue": {
+        "value": "W38RGI023J3WT1HWRP32",
+        "type": "string"
+       }
+      },
+      "qualifiers": {}
+     },
+     {
+      "rank": "normal",
+      "mainsnak": {
+       "snaktype": "value",
+       "datavalue": {
+        "value": "529900ZZVLZ93I1AW009",
+        "type": "string"
+       }
+      },
+      "qualifiers": {}
+     }
+    ],
+    "P31": [
+     {
+      "rank": "normal",
+      "mainsnak": {
+       "snaktype": "value",
+       "datavalue": {
+        "value": {
+         "entity-type": "item",
+         "numeric-id": 778575,
+         "id": "Q778575"
+        },
+        "type": "wikibase-entityid"
+       }
+      },
+      "qualifiers": {}
+     },
+     {
+      "rank": "normal",
+      "mainsnak": {
+       "snaktype": "value",
+       "datavalue": {
+        "value": {
+         "entity-type": "item",
+         "numeric-id": 4830453,
+         "id": "Q4830453"
+        },
+        "type": "wikibase-entityid"
+       }
+      },
+      "qualifiers": {}
+     },
+     {
+      "rank": "normal",
+      "mainsnak": {
+       "snaktype": "value",
+       "datavalue": {
+        "value": {
+         "entity-type": "item",
+         "numeric-id": 6881511,
+         "id": "Q6881511"
+        },
+        "type": "wikibase-entityid"
+       }
+      },
+      "qualifiers": {}
+     }
+    ]
+   },
+   "modified": "2026-11-06T20:33:52Z"
+  }
+ }
+}

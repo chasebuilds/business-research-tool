@@ -1,0 +1,38 @@
+{
+ "search": [
+  {
+   "id": "Q81230",
+   "label": "Siemens",
+   "description": "German multinational conglomerate company",
+   "match": {
+    "type": "alias",
+    "language": "en",
+    "text": "Siemens AG"
+   },
+   "aliases": [
+    "Siemens AG"
+   ]
+  },
+  {
+   "id": "Q29533487",
+   "label": "Siemens AG Annual Report 2016",
+   "description": "annual report of Siemens AG",
+   "match": {
+    "type": "label",
+    "language": "en",
+    "text": "Siemens AG Annual Report 2016"
+   }
+  },
+  {
+   "id": "Q68646904",
+   "label": "Siemens AG, area of medical technology",
+   "description": "scientific article published on 01 January 1972",
+   "match": {
+    "type": "label",
+    "language": "en",
+    "text": "Siemens AG, area of medical technology"
+   }
+  }
+ ],
+ "success": 1
+}

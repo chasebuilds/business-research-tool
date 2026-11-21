@@ -1,0 +1,102 @@
+2026-11-21T04:47:27Z INFO    source edgar skipped: SEC_EDGAR_CONTACT is not set
+2026-11-21T04:47:27Z INFO    run start: 15 companies, sources gleif, ror, wikidata
+2026-11-21T04:47:27Z INFO    user agent: business-research-tool/0.1 (https://github.com/chasebuilds/business-research-tool)
+2026-11-21T04:47:27Z INFO    company 1/15: Apple Inc.
+2026-11-21T04:47:27Z INFO    robots https://api.gleif.org/robots.txt -> HTTP 200
+2026-11-21T04:47:27Z INFO    cache  https://api.gleif.org/api/v1/lei-records?filter%5Bentity.legalName%5D=Apple+Inc.&page%5Bsize%5D=10 (fetched 2026-11-21T04:45:52Z)
+2026-11-21T04:47:27Z INFO    robots https://api.ror.org/robots.txt -> HTTP 403
+2026-11-21T04:47:27Z INFO    cache  https://api.ror.org/v2/organizations?query=%22Apple%22&filter=country.country_code%3AUS (fetched 2026-11-21T04:45:53Z)
+2026-11-21T04:47:27Z INFO    robots https://www.wikidata.org/robots.txt -> HTTP 200
+2026-11-21T04:47:27Z INFO    cache  https://www.wikidata.org/wiki/Special:EntityData/Q312.json (fetched 2026-11-21T04:45:55Z)
+2026-11-21T04:47:27Z INFO    cache  https://www.wikidata.org/wiki/Special:EntityData/Q880371.json (fetched 2026-11-21T04:45:56Z)
+2026-11-21T04:47:27Z INFO      -> matched (gleif:accepted, ror:accepted, wikidata:accepted)
+2026-11-21T04:47:27Z INFO    company 2/15: Microsoft
+2026-11-21T04:47:27Z INFO    cache  https://api.gleif.org/api/v1/lei-records?filter%5Bentity.legalName%5D=Microsoft&page%5Bsize%5D=10 (fetched 2026-11-21T04:45:56Z)
+2026-11-21T04:47:27Z INFO    cache  https://api.ror.org/v2/organizations?query=%22Microsoft%22&filter=country.country_code%3AUS (fetched 2026-11-21T04:45:57Z)
+2026-11-21T04:47:27Z INFO    cache  https://www.wikidata.org/wiki/Special:EntityData/Q2283.json (fetched 2026-11-21T04:45:58Z)
+2026-11-21T04:47:27Z INFO    cache  https://www.wikidata.org/wiki/Special:EntityData/Q21157865.json (fetched 2026-11-21T04:45:59Z)
+2026-11-21T04:47:27Z INFO    cache  https://www.wikidata.org/wiki/Special:EntityData/Q47462228.json (fetched 2026-11-21T04:46:01Z)
+2026-11-21T04:47:27Z INFO      -> matched (gleif:accepted, ror:accepted, wikidata:accepted)
+2026-11-21T04:47:27Z INFO    company 3/15: Siemens AG
+2026-11-21T04:47:27Z INFO    cache  https://api.gleif.org/api/v1/lei-records?filter%5Bentity.legalName%5D=Siemens+AG&page%5Bsize%5D=10 (fetched 2026-11-21T04:46:01Z)
+2026-11-21T04:47:27Z INFO    cache  https://api.ror.org/v2/organizations?query=%22Siemens%22&filter=country.country_code%3ADE (fetched 2026-11-21T04:46:01Z)
+2026-11-21T04:47:27Z INFO    cache  https://www.wikidata.org/wiki/Special:EntityData/Q81230.json (fetched 2026-11-21T04:46:02Z)
+2026-11-21T04:47:27Z INFO    cache  https://www.wikidata.org/wiki/Special:EntityData/Q43035.json (fetched 2026-11-21T04:46:03Z)
+2026-11-21T04:47:27Z INFO    cache  https://api.gleif.org/api/v1/lei-records/W38RGI023J3WT1HWRP32 (fetched 2026-11-21T04:46:04Z)
+2026-11-21T04:47:27Z INFO    cache  https://api.gleif.org/api/v1/lei-records/529900ZZVLZ93I1AW009 (fetched 2026-11-21T04:46:05Z)
+2026-11-21T04:47:27Z INFO      -> matched (gleif:accepted, ror:accepted, wikidata:accepted)
+2026-11-21T04:47:27Z INFO    company 4/15: Toyota Motor Corporation
+2026-11-21T04:47:27Z INFO    cache  https://api.gleif.org/api/v1/lei-records?filter%5Bentity.legalName%5D=Toyota+Motor+Corporation&page%5Bsize%5D=10 (fetched 2026-11-21T04:46:06Z)
+2026-11-21T04:47:27Z INFO    cache  https://api.ror.org/v2/organizations?query=%22Toyota+Motor%22&filter=country.country_code%3AJP (fetched 2026-11-21T04:46:06Z)
+2026-11-21T04:47:27Z INFO    cache  https://www.wikidata.org/wiki/Special:EntityData/Q53268.json (fetched 2026-11-21T04:46:06Z)
+2026-11-21T04:47:27Z INFO    cache  https://www.wikidata.org/wiki/Special:EntityData/Q190117.json (fetched 2026-11-21T04:46:08Z)
+2026-11-21T04:47:27Z INFO      -> matched (gleif:review, ror:accepted, wikidata:none)
+2026-11-21T04:47:27Z INFO    company 5/15: Nestlé S.A.
+2026-11-21T04:47:27Z INFO    cache  https://api.gleif.org/api/v1/lei-records?filter%5Bentity.legalName%5D=Nestl%C3%A9+S.A.&page%5Bsize%5D=10 (fetched 2026-11-21T04:46:08Z)
+2026-11-21T04:47:27Z INFO    cache  https://api.ror.org/v2/organizations?query=%22Nestl%C3%A9%22&filter=country.country_code%3ACH (fetched 2026-11-21T04:46:08Z)
+2026-11-21T04:47:27Z INFO    cache  https://www.wikidata.org/wiki/Special:EntityData/Q160746.json (fetched 2026-11-21T04:46:09Z)
+2026-11-21T04:47:27Z INFO    cache  https://www.wikidata.org/wiki/Special:EntityData/Q540912.json (fetched 2026-11-21T04:46:11Z)
+2026-11-21T04:47:27Z INFO      -> matched (gleif:accepted, ror:accepted, wikidata:accepted)
+2026-11-21T04:47:27Z INFO    company 6/15: Samsung Electronics
+2026-11-21T04:47:27Z INFO    cache  https://api.gleif.org/api/v1/lei-records?filter%5Bentity.legalName%5D=Samsung+Electronics&page%5Bsize%5D=10 (fetched 2026-11-21T04:46:11Z)
+2026-11-21T04:47:27Z INFO    cache  https://api.ror.org/v2/organizations?query=%22Samsung+Electronics%22&filter=country.country_code%3AKR (fetched 2026-11-21T04:46:11Z)
+2026-11-21T04:47:27Z INFO    cache  https://www.wikidata.org/wiki/Special:EntityData/Q20718.json (fetched 2026-11-21T04:46:12Z)
+2026-11-21T04:47:27Z INFO    cache  https://www.wikidata.org/wiki/Special:EntityData/Q5358497.json (fetched 2026-11-21T04:46:14Z)
+2026-11-21T04:47:27Z INFO      -> matched (gleif:accepted, ror:accepted, wikidata:accepted)
+2026-11-21T04:47:27Z INFO    company 7/15: Unilever PLC
+2026-11-21T04:47:27Z INFO    cache  https://api.gleif.org/api/v1/lei-records?filter%5Bentity.legalName%5D=Unilever+PLC&page%5Bsize%5D=10 (fetched 2026-11-21T04:46:14Z)
+2026-11-21T04:47:27Z INFO    cache  https://api.ror.org/v2/organizations?query=%22Unilever%22&filter=country.country_code%3AGB (fetched 2026-11-21T04:46:14Z)
+2026-11-21T04:47:27Z INFO    cache  https://www.wikidata.org/wiki/Special:EntityData/Q157062.json (fetched 2026-11-21T04:46:15Z)
+2026-11-21T04:47:27Z INFO    cache  https://www.wikidata.org/wiki/Special:EntityData/Q29999.json (fetched 2026-11-21T04:46:17Z)
+2026-11-21T04:47:27Z INFO    cache  https://www.wikidata.org/wiki/Special:EntityData/Q3246832.json (fetched 2026-11-21T04:46:18Z)
+2026-11-21T04:47:27Z INFO    cache  https://www.wikidata.org/wiki/Special:EntityData/Q10709663.json (fetched 2026-11-21T04:46:20Z)
+2026-11-21T04:47:27Z INFO    cache  https://www.wikidata.org/wiki/Special:EntityData/Q39663979.json (fetched 2026-11-21T04:46:21Z)
+2026-11-21T04:47:27Z INFO      -> matched (gleif:accepted, ror:accepted, wikidata:accepted)
+2026-11-21T04:47:27Z INFO    company 8/15: Volkswagen AG
+2026-11-21T04:47:27Z INFO    cache  https://api.gleif.org/api/v1/lei-records?filter%5Bentity.legalName%5D=Volkswagen+AG&page%5Bsize%5D=10 (fetched 2026-11-21T04:46:22Z)
+2026-11-21T04:47:27Z INFO    cache  https://api.ror.org/v2/organizations?query=%22Volkswagen%22&filter=country.country_code%3ADE (fetched 2026-11-21T04:46:22Z)
+2026-11-21T04:47:27Z INFO    cache  https://www.wikidata.org/wiki/Special:EntityData/Q156578.json (fetched 2026-11-21T04:46:23Z)
+2026-11-21T04:47:27Z INFO    cache  https://www.wikidata.org/wiki/Special:EntityData/Q190117.json (fetched 2026-11-21T04:46:08Z)
+2026-11-21T04:47:27Z INFO    cache  https://api.gleif.org/api/v1/lei-records/529900NNUPAGGOMPXZ31 (fetched 2026-11-21T04:46:23Z)
+2026-11-21T04:47:27Z INFO      -> matched (gleif:accepted, ror:accepted, wikidata:accepted)
+2026-11-21T04:47:27Z INFO    company 9/15: Sony Group Corporation
+2026-11-21T04:47:27Z INFO    cache  https://api.gleif.org/api/v1/lei-records?filter%5Bentity.legalName%5D=Sony+Group+Corporation&page%5Bsize%5D=10 (fetched 2026-11-21T04:46:24Z)
+2026-11-21T04:47:28Z INFO    GET    https://api.gleif.org/api/v1/lei-records?filter%5Bfulltext%5D=Sony+Group+Corporation&page%5Bsize%5D=10 -> HTTP 200
+2026-11-21T04:47:28Z INFO    cache  https://api.ror.org/v2/organizations?query=%22Sony+Group%22&filter=country.country_code%3AJP (fetched 2026-11-21T04:46:24Z)
+2026-11-21T04:47:28Z INFO    cache  https://api.ror.org/v2/organizations?query=%22Sony+Group%22 (fetched 2026-11-21T04:46:25Z)
+2026-11-21T04:47:28Z INFO      -> matched (gleif:accepted, ror:none, wikidata:none)
+2026-11-21T04:47:28Z INFO    company 10/15: Novartis
+2026-11-21T04:47:28Z INFO    cache  https://api.gleif.org/api/v1/lei-records?filter%5Bentity.legalName%5D=Novartis&page%5Bsize%5D=10 (fetched 2026-11-21T04:46:25Z)
+2026-11-21T04:47:28Z INFO    cache  https://api.ror.org/v2/organizations?query=%22Novartis%22&filter=country.country_code%3ACH (fetched 2026-11-21T04:46:26Z)
+2026-11-21T04:47:28Z INFO    cache  https://www.wikidata.org/wiki/Special:EntityData/Q507154.json (fetched 2026-11-21T04:46:26Z)
+2026-11-21T04:47:28Z INFO    cache  https://www.wikidata.org/wiki/Special:EntityData/Q507443.json (fetched 2026-11-21T04:46:28Z)
+2026-11-21T04:47:28Z INFO      -> matched (gleif:accepted, ror:accepted, wikidata:accepted)
+2026-11-21T04:47:28Z INFO    company 11/15: Airbus SE
+2026-11-21T04:47:28Z INFO    cache  https://api.gleif.org/api/v1/lei-records?filter%5Bentity.legalName%5D=Airbus+SE&page%5Bsize%5D=10 (fetched 2026-11-21T04:46:28Z)
+2026-11-21T04:47:28Z INFO    cache  https://api.ror.org/v2/organizations?query=%22Airbus%22&filter=country.country_code%3ANL (fetched 2026-11-21T04:46:28Z)
+2026-11-21T04:47:28Z INFO      -> matched (gleif:accepted, ror:accepted, wikidata:none)
+2026-11-21T04:47:28Z INFO    company 12/15: IBM
+2026-11-21T04:47:28Z INFO    cache  https://api.gleif.org/api/v1/lei-records?filter%5Bentity.legalName%5D=IBM&page%5Bsize%5D=10 (fetched 2026-11-21T04:46:29Z)
+2026-11-21T04:47:28Z INFO    cache  https://api.ror.org/v2/organizations?query=%22IBM%22&filter=country.country_code%3AUS (fetched 2026-11-21T04:46:29Z)
+2026-11-21T04:47:28Z INFO    cache  https://www.wikidata.org/wiki/Special:EntityData/Q37156.json (fetched 2026-11-21T04:46:30Z)
+2026-11-21T04:47:28Z INFO    cache  https://www.wikidata.org/wiki/Special:EntityData/Q880371.json (fetched 2026-11-21T04:45:56Z)
+2026-11-21T04:47:28Z INFO    cache  https://api.gleif.org/api/v1/lei-records/VGRQXHF3J8VDLUA7XE92 (fetched 2026-11-21T04:46:30Z)
+2026-11-21T04:47:28Z INFO      -> matched (gleif:review, ror:accepted, wikidata:accepted)
+2026-11-21T04:47:28Z INFO    company 13/15: BP p.l.c.
+2026-11-21T04:47:28Z INFO    cache  https://api.gleif.org/api/v1/lei-records?filter%5Bentity.legalName%5D=BP+p.l.c.&page%5Bsize%5D=10 (fetched 2026-11-21T04:46:31Z)
+2026-11-21T04:47:28Z INFO    cache  https://api.ror.org/v2/organizations?query=%22BP%22&filter=country.country_code%3AGB (fetched 2026-11-21T04:46:32Z)
+2026-11-21T04:47:28Z INFO    cache  https://www.wikidata.org/wiki/Special:EntityData/Q152057.json (fetched 2026-11-21T04:46:32Z)
+2026-11-21T04:47:28Z INFO    cache  https://www.wikidata.org/wiki/Special:EntityData/Q862571.json (fetched 2026-11-21T04:46:33Z)
+2026-11-21T04:47:28Z INFO      -> matched (gleif:accepted, ror:accepted, wikidata:accepted)
+2026-11-21T04:47:28Z INFO    company 14/15: Intel Corporation
+2026-11-21T04:47:28Z INFO    cache  https://api.gleif.org/api/v1/lei-records?filter%5Bentity.legalName%5D=Intel+Corporation&page%5Bsize%5D=10 (fetched 2026-11-21T04:46:33Z)
+2026-11-21T04:47:28Z INFO    cache  https://api.ror.org/v2/organizations?query=%22Intel%22&filter=country.country_code%3AUS (fetched 2026-11-21T04:46:34Z)
+2026-11-21T04:47:28Z INFO    cache  https://www.wikidata.org/wiki/Special:EntityData/Q248.json (fetched 2026-11-21T04:46:35Z)
+2026-11-21T04:47:28Z INFO    cache  https://www.wikidata.org/wiki/Special:EntityData/Q2986369.json (fetched 2026-11-21T04:46:36Z)
+2026-11-21T04:47:28Z INFO      -> matched (gleif:accepted, ror:accepted, wikidata:accepted)
+2026-11-21T04:47:28Z INFO    company 15/15: Roche Holding AG
+2026-11-21T04:47:28Z INFO    cache  https://api.gleif.org/api/v1/lei-records?filter%5Bentity.legalName%5D=Roche+Holding+AG&page%5Bsize%5D=10 (fetched 2026-11-21T04:46:36Z)
+2026-11-21T04:47:28Z INFO    cache  https://api.ror.org/v2/organizations?query=%22Roche+Holding%22&filter=country.country_code%3ACH (fetched 2026-11-21T04:46:36Z)
+2026-11-21T04:47:28Z INFO    cache  https://api.ror.org/v2/organizations?query=%22Roche+Holding%22 (fetched 2026-11-21T04:46:37Z)
+2026-11-21T04:47:28Z INFO      -> matched (gleif:accepted, ror:review, wikidata:none)
+2026-11-21T04:47:28Z INFO    run end: wrote samples\live_output.xlsx
