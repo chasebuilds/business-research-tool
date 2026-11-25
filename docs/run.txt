@@ -1,0 +1,25 @@
+> python -m venv .venv
+[exit 0, 4.5 s]
+
+> .venv\Scripts\python -m pip install -q .
+[exit 0, 8.2 s]
+
+> .venv\Scripts\business-research demo -o demo_output.xlsx
+Demo input (invented companies): samples\demo_input.csv
+companies in input                           44
+matched in at least one source               39
+sent to review only                          2
+not found                                    3
+companies matched in two or more sources     31
+input rows flagged as possible duplicates    0
+field values: verified (independent sources agree) 58
+field values: corroborated (related sources agree) 30
+field values: single-source                  132
+field values: conflict                       9
+accept score threshold                       90.0
+review score threshold                       70.0
+coverage: mock registry                      asked 44, matched 29, review 7, not found 8, rows with a failed request 0
+coverage: mock encyclopedia                  asked 44, matched 32, review 4, not found 8, rows with a failed request 0
+coverage: mock directory                     asked 44, matched 22, review 4, not found 18, rows with a failed request 0
+Workbook: demo_output.xlsx
+[exit 0, 0.6 s]

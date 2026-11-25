@@ -4,9 +4,32 @@
 
 Turn a list of company names into a research spreadsheet where every fact has a source link, a retrieval date, and a status that says whether an independent second source agrees.
 
-![A list of invented company names above, and the research sheet below with each field colored by how many sources agree](docs/preview.png)
-
 Built by Chase Builds. Python library and command line tool.
+
+## See it run
+
+The real work calls live public registries (GLEIF, ROR, Wikidata), so there is no browser demo. This is a real run of the offline demo instead: the whole pipeline on invented companies and three fake sources, no network. Captured from the terminal unedited ([full transcript](docs/run.txt)).
+
+![Terminal: venv, install, then business-research demo printing match and verification counts](docs/run.png)
+
+First rows of the `Companies` sheet in the output workbook:
+
+| input_name | matched_sources | legal_name | legal_name_status | country |
+|---|---|---|---|---|
+| Fentrayx Tools | encyclopedia | Fentrayx Tools S.A.S. | single-source | FR |
+| Jorrion Insurance AG | registry, encyclopedia | Jorrion Insurance AG | verified | DE |
+| Kasphael Logistics AB | registry | Kasphael Logistics Worldwide | single-source | SE |
+| Doprhayx Tools SA | registry, encyclopedia | Dorphayx Tools Société Anonyme | verified | FR |
+
+### Run it yourself in 3 commands
+
+After `git clone https://github.com/chasebuilds/business-research-tool` and `cd business-research-tool` (Windows shown; on macOS or Linux use `python3` and `.venv/bin/`):
+
+```
+python -m venv .venv
+.venv\Scripts\python -m pip install -q .
+.venv\Scripts\business-research demo -o demo_output.xlsx
+```
 
 ## Measured result
 
@@ -22,6 +45,8 @@ Scored against a seeded truth set of 300 invented companies spread over three fa
 | Names that exist in no source and stayed out of the dataset | 30 of 30 |
 
 **These numbers come from the mock harness, not from live sources.** They measure the matching and verification logic. They do not measure how complete or correct GLEIF, ROR or Wikidata are. The tool is tuned to send doubtful matches to a review sheet instead of guessing: 44 of the 53 lookups it did not accept are waiting in `Review` with the right record listed.
+
+![A list of invented company names above, and the research sheet below with each field colored by how many sources agree](docs/preview.png)
 
 ## Before and after
 
