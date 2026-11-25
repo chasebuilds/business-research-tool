@@ -202,3 +202,11 @@ See [LIMITATIONS.md](LIMITATIONS.md). The short version:
 ## License
 
 MIT, copyright Chase Builds. See [LICENSE](LICENSE). Data from GLEIF, ROR and Wikidata is published by those projects under CC0. This tool is not affiliated with or endorsed by any of them.
+
+## More from Chase Builds
+
+- **[housing-market-trends](https://github.com/chasebuilds/housing-market-trends)**: Monthly market metrics and a time-adjustment rate with a confidence band. ([live demo](https://chasebuilds.github.io/housing-market-trends/))
+- **[excel-to-sql](https://github.com/chasebuilds/excel-to-sql)**: Load CSV and Excel into SQL with type inference and a load report. ([live demo](https://chasebuilds.github.io/excel-to-sql/))
+- **[data-quality-checks](https://github.com/chasebuilds/data-quality-checks)**: Catches bad data before it reaches a report. 1,784 of 1,800 planted faults caught, 0 false alarms. ([live demo](https://chasebuilds.github.io/data-quality-checks/))
+
+[All projects, sorted by industry](https://github.com/chasebuilds) · [chasebuilds.github.io](https://chasebuilds.github.io)
